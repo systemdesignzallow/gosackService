@@ -1,0 +1,72 @@
+{
+  "name": "",
+  "version": "",
+  "description": "",
+  "author": "",
+  "license": "",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "browser": {
+    "jsdom": false
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "babel-preset-airbnb"
+    ]
+  },
+  "scripts": {
+    "precommit": "NODE_ENV=production lint-staged",
+    "test": "mocha ./test/test.js --exit",
+    "test:client": "webpack --watch --config ./webpack.config.js --mode development & nodemon ./server/test.js",
+    "test:client:circleci": "mocha ./public/test-bundle.js --require ./test/setup.js",
+    "build": "webpack --config ./webpack.config.js --mode development",
+    "start": "webpack --config ./webpack.config.js --watch  --mode development & nodemon ./server/index.js",
+    "start:prod": "node ./server/index.js"
+  },
+  "dependencies": {
+    "babel-plugin-react-css-modules": "^5.2.4",
+    "chai": "^4.2.0",
+    "circleci": "^0.3.3",
+    "cors": "^2.8.5",
+    "css-loader": "^2.1.1",
+    "css-modules-require-hook": "^4.2.3",
+    "dotenv": "^7.0.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "express": "^4.16.4",
+    "jsdom": "^14.0.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^6.2.0",
+    "mongoose": "^5.4.20",
+    "nyc": "^13.3.0",
+    "react": "^16.8.5",
+    "react-css-modules": "^4.7.9",
+    "react-dom": "^16.8.5",
+    "request": "^2.88.0",
+    "sinon": "^7.3.1",
+    "supertest": "^4.0.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-airbnb": "^3.2.1",
+    "csv-writer": "^1.5.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "faker": "^4.1.0",
+    "prettier": "1.16.4",
+    "style-loader": "^0.23.1"
+  }
+}

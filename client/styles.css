@@ -1,0 +1,212 @@
+.containerTop {
+  display: flex;
+}
+.noMargin {
+  margin: 0;
+}
+.lightFacts {
+  margin: 20px 0px 20px 0px;
+}
+.containerMain {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 40px;
+}
+.todo {
+  border: 1px solid black;
+}
+#redDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 5px;
+}
+.containerFactsItems {
+  display: flex;
+  height: 150px;
+  grid-template-rows: 33% 33% auto;
+  grid-auto-columns: 33% 33% auto;
+  flex-wrap: wrap;
+  margin-top: 2%;
+}
+.containerFacts {
+  margin-top: 8%;
+}
+.fact {
+  width: 33%;
+  display: flex;
+}
+hr {
+  opacity: 0.4;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.moreInfoTitle {
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.interiorContainerInterior {
+  column-count: 2;
+  column-gap: 30px;
+}
+.containerBiggerFact {
+  margin-top: 10px;
+  margin-left: 10px;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+}
+.containerBiggerFact > div {
+  margin-top: 10px;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+}
+.greyedOut {
+  color: #aaa;
+}
+#seeMore {
+  margin-top: 10px;
+  border: none;
+  color: #006aff;
+  font-weight: 300;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 20%;
+}
+#seeMore:hover {
+  color: rgb(73, 147, 231);
+}
+#seeMore:focus {
+  outline: none;
+}
+.containerCalculator {
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+#estimateTitle {
+  margin-top: 30px;
+  font-size: 13px;
+}
+#calculatorButton {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 15px;
+  width: 45px;
+  height: 25px;
+  display: flex;
+}
+#calculatorButton > img {
+  margin: 5% 0% 5% -10%;
+  width: 80%;
+  height: 80%;
+}
+#calculatorButton > div {
+  margin-top: 25%;
+  margin-left: 5%;
+  font-size: 8px;
+}
+#calculatorButton:hover {
+  border: 1px solid #006aff;
+}
+#calculatorMain {
+  z-index: 999;
+  position: absolute;
+  margin-top: 25px;
+  background-color: white;
+  box-shadow: 0 0 1px 1px #ccc;
+  width: 325px;
+  height: 350px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#calculatorTitle {
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+#calculatorMonthly {
+  height: 25%;
+  width: 100%;
+  margin-top: 15px;
+  background-color: #cdf2db;
+}
+#calculatorMonthly > div {
+  margin-top: 25px;
+  margin-left: 20px;
+  font-size: 0.8em;
+}
+#paymentBig {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+#paymentLittle {
+  font-weight: bold;
+}
+#disclaimer {
+  margin-top: 5px;
+  font-size: 0.6em;
+  color: rgb(129, 128, 128);
+}
+#calculatorInput {
+  width: 90%;
+  margin-top: 35px;
+  display: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#calculatorInput > div {
+  margin-top: 10px;
+}
+.inputOuter {
+  border: 1px solid #ccc;
+  width: 107px;
+  height: 25px;
+  color: rgb(129, 129, 129);
+  font-size: 0.85em;
+  display: flex;
+}
+.inputOuter:hover {
+  border: 1px solid #006aff;
+}
+.inputInner {
+  border: none;
+  font-size: 0.8em;
+  width: 100%;
+}
+.inputInner:focus {
+  outline: none;
+}
+.inputTitle {
+  font-size: 0.75em;
+}
+#downpayment {
+  display: flex;
+}
+#inputDownpaymentPercent {
+  width: 50px;
+}
+#interestRate,
+#interestRate > div {
+  width: 159px;
+}
+#selectLoanTerm {
+  width: 100%;
+  border: none;
+  font-size: 0.8em;
+  background: transparent;
+}
+#selectLoanTerm:focus {
+  outline: none;
+}
+.broken {
+  border: 1px solid red;
+}
