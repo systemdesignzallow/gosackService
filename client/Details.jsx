@@ -5,6 +5,7 @@ import CssModules from 'react-css-modules';
 import style from './styles.css';
 var Details = ({ house, toggle, handleClick }) => {
   let key = 0;
+  console.log(house);
   return (
     <div className={style.containerInterior}>
       <p className={style.noMargin + ' ' + style.moreInfoTitle}>INTERIOR FEATURES</p>
@@ -37,7 +38,7 @@ var Details = ({ house, toggle, handleClick }) => {
           <h4 className={style.noMargin}>Appliances</h4>
           <div>
             <span className={style.greyedOut}>Appliances included: </span>
-            <div>{house.appliances.length ? house.appliances.join(', ') : 'None'}</div>
+            <div>{house.appliances && house.appliances.length ? house.appliances : 'None'}</div>
           </div>
         </div>
         <div className={style.containerBiggerFact}>
@@ -53,7 +54,7 @@ var Details = ({ house, toggle, handleClick }) => {
         </div>
         <div className={style.containerBiggerFact}>
           <h4 className={style.noMargin}>Interior Features</h4>
-          {house.interiorFeatures.map(feat => {
+          {house.interiorFeatures.split(',').map(feat => {
             return <div key={key++}>{feat}</div>;
           })}
           <div>

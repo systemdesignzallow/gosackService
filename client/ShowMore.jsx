@@ -42,7 +42,7 @@ const ShowMore = ({ house }) => {
         </div>
         <div className={style.containerBiggerFact}>
           <h4 className={style.noMargin}>Dates</h4>
-          <div>{`Built in ${house.year}`}</div>
+          <div>{`Built in ${house.yearBuilt}`}</div>
         </div>
         <div className={style.containerBiggerFact}>
           <h4 className={style.noMargin}>Other Construction Features</h4>

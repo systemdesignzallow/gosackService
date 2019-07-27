@@ -8,7 +8,7 @@ class GenDesc extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      house: props.house,
+      house: props.house[0],
       toggle: false
     };
   }
