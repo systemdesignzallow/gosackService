@@ -4,7 +4,7 @@ let fs = require('fs');
 
 // for fs
 let sampleData = [];
-let writeStream = fs.createWriteStream(path.join(__dirname, 'smallData.csv'));
+let writeStream = fs.createWriteStream(path.join(__dirname, './data/data.csv'));
 
 const createCsvStringifier = require('csv-writer').createObjectCsvStringifier;
 const csvStringifier = createCsvStringifier({
@@ -16,8 +16,8 @@ const csvStringifier = createCsvStringifier({
         {id: 'roof', title: 'ROOF'},
         {id: 'exterior', title: 'EXTERIOR'},
         {id: 'flooring', title: 'FLOORING'},
-        {id: '_id', title: 'ID'},
-        {id: 'address', title: 'ADDRESS'},
+        {id: 'homeId', title: 'ID'},
+        {id: 'homeAddress', title: 'ADDRESS'},
         {id: 'price', title: 'PRICE'},
         {id: 'beds', title: 'BEDS'},
         {id: 'baths', title: 'BATHS'},
@@ -25,19 +25,20 @@ const csvStringifier = createCsvStringifier({
         {id: 'stories', title: 'STORIES'},
         {id: 'floorSize', title: 'FLOORSIZE'},
         {id: 'spaces', title: 'SPACES'},
-        {id: 'description', title: 'DESCRIPTION'},
-        {id: 'type', title: 'TYPE'},
-        {id: 'year', title: 'YEAR'},
+        {id: 'houseDescription', title: 'DESCRIPTION'},
+        {id: 'houseType', title: 'TYPE'},
+        {id: 'yearBuilt', title: 'YEAR'},
         {id: 'heating', title: 'HEATING'},
         {id: 'cooling', title: 'COOLING'},
         {id: 'parking', title: 'PARKING'},
         {id: 'lotSize', title: 'LOTSIZE'},
         {id: 'daysListed', title: 'DAYSLISTED'},
         {id: 'saves', title: 'SAVES'}
-    ]
+    ],
+    fieldDelimiter: ';'
 });
 
-let i = 1e3;
+let i = 1e7;
 write();
 
 function write() {
@@ -76,7 +77,7 @@ function write() {
         house.roof = roofTypes[Math.floor(Math.random() * roofTypes.length)];
         house.exterior = exteriorTypes[Math.floor(Math.random() * exteriorTypes.length)];
         house.flooring = flooring[Math.floor(Math.random() * flooring.length)];
-        house._id = i;
+        house.homeId = i;
         house.address = address;
         house.price = Math.floor(Math.random() * 1000000 + 100000);
         house.beds = Math.floor(Math.random() * 6 + 1);
@@ -85,23 +86,27 @@ function write() {
         house.stories = Math.floor(Math.random() * 3 + 1);
         house.floorSize = Math.floor(Math.random() * 3750 + 750);
         house.spaces = ['Pool', 'N/A'][Math.floor(Math.random() * 2)];
-        house.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae eros massa. Etiam pretium ex purus, vel tempus diam pretium eget. Curabitur hendrerit, tortor sed ultrices finibus, tortor eros condimentum tortor, ac mollis augue arcu sed felis. Vestibulum et aliquet ex. Aenean cursus elementum eleifend. Curabitur sit amet finibus mauris, et porttitor justo. Maecenas imperdiet euismod elit, eu dictum nibh faucibus quis. Pellentesque quis ullamcorper dolor. Morbi vestibulum eget ligula non venenatis.'; 
-        house.type = houseTypes[Math.floor(Math.random() * houseTypes.length)];
-        house.year = Math.floor(Math.random() * 88 + 1930);
+        house.houseDescription = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae eros massa. Etiam pretium ex purus, vel tempus diam pretium eget. Curabitur hendrerit, tortor sed ultrices finibus, tortor eros condimentum tortor, ac mollis augue arcu sed felis. Vestibulum et aliquet ex. Aenean cursus elementum eleifend. Curabitur sit amet finibus mauris, et porttitor justo. Maecenas imperdiet euismod elit, eu dictum nibh faucibus quis. Pellentesque quis ullamcorper dolor. Morbi vestibulum eget ligula non venenatis.'; 
+        house.houseType = houseTypes[Math.floor(Math.random() * houseTypes.length)];
+        house.yearBuilt = Math.floor(Math.random() * 88 + 1930);
         house.heating = heatingTypes[Math.floor(Math.random() * heatingTypes.length)];
         house.cooling = coolingTypes[Math.floor(Math.random() * coolingTypes.length)];
         house.parking = Math.floor(Math.random() * 6 + 1);
         house.lotSize = Math.floor(Math.random() * (10000 - house.floorSize) + house.floorSize);
         house.daysListed = Math.floor(Math.random() * 364 + 1);
         house.saves = Math.floor(Math.random() * 150);
+        
         sampleData.push(house);
         
         ok = writeStream.write(csvStringifier.stringifyRecords(sampleData), 'utf8');
+        
         sampleData = [];
+        
         i--;
+        
         if(i % 1e4 === 0){
             console.log(i);
-        } else if (i % 1e4 === 0) {
+        } else if (i % 1e5 === 0) {
             console.clear();
         }
     } while (i > 0 && ok);
