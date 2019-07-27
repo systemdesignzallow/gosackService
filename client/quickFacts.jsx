@@ -7,12 +7,12 @@ var FactsAndFeatures = ({ house }) => {
     type: {
       label: 'Type',
       img: 'https://image.flaticon.com/icons/svg/1555/1555466.svg',
-      val: house.type
+      val: house.houseType
     },
     year: {
       label: 'Year',
       img: 'https://image.flaticon.com/icons/svg/1459/1459097.svg',
-      val: house.year
+      val: house.yearBuilt
     },
     heating: {
       label: 'Heating',
