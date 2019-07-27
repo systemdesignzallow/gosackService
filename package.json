@@ -39,6 +39,7 @@
     "express": "^4.16.4",
     "jsdom": "^14.0.0",
     "jsdom-global": "^3.0.2",
+    "mariadb": "^2.1.0",
     "mocha": "^6.2.0",
     "mongoose": "^5.4.20",
     "nyc": "^13.3.0",
