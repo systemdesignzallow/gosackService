@@ -6,30 +6,3 @@ const homes = mariadb.createPool({socketpath: '/run/mysqld/mysqld.sock', user: '
 module.exports = {
      House: homes
   };
-
-// const houseSchema = mongoose.Schema({
-//   _id: Number,
-//   address: String,
-//   price: Number,
-//   beds: Number,
-//   baths: Number,
-//   floorSize: Number,
-//   description: String,
-//   type: String,
-//   year: Number,
-//   heating: String,
-//   cooling: String,
-//   parking: Number,
-//   lotSize: Number,
-//   daysListed: Number,
-//   saves: Number,
-//   appliances: Array,
-//   interiorFeatures: Array,
-//   construction: String,
-//   roof: String,
-//   exterior: String,
-//   flooring: String,
-//   rooms: Number,
-//   stories: Number,
-//   spaces: String,
-// });
