@@ -39,6 +39,7 @@ const csvStringifier = createCsvStringifier({
 });
 
 let i = 1e7;
+console.log(Date.now());
 write();
 
 function write() {
@@ -72,7 +73,8 @@ function write() {
         for(let j = 0; j < Math.floor(Math.random() * interiorFeatures.length); j++) {
             house.interiorFeatures.push(interiorFeatures[Math.floor(Math.random() * interiorFeatures.length)]);
         }
-            
+        
+        house.address = address;
         house.construction = construction[Math.floor(Math.random() * construction.length)];
         house.roof = roofTypes[Math.floor(Math.random() * roofTypes.length)];
         house.exterior = exteriorTypes[Math.floor(Math.random() * exteriorTypes.length)];
@@ -114,4 +116,5 @@ function write() {
     if (i > 0) {
         writeStream.once('drain', write);
     }
+    console.log(Date.now());
 }
