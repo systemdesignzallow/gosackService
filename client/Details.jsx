@@ -5,7 +5,6 @@ import CssModules from 'react-css-modules';
 import style from './styles.css';
 var Details = ({ house, toggle, handleClick }) => {
   let key = 0;
-  console.log(house);
   return (
     <div className={style.containerInterior}>
       <p className={style.noMargin + ' ' + style.moreInfoTitle}>INTERIOR FEATURES</p>
