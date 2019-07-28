@@ -1,9 +1,9 @@
 {
-  "name": "",
+  "name": "gosackService",
   "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "description": "General Description Service for Zallow",
+  "author": "James Kelly",
+  "license": "MIT",
   "engines": {
     "node": ">=6.13.0"
   },
@@ -27,6 +27,7 @@
     "start:prod": "node ./server/index.js"
   },
   "dependencies": {
+    "artillery": "^1.6.0-28",
     "babel-plugin-react-css-modules": "^5.2.4",
     "chai": "^4.2.0",
     "circleci": "^0.3.3",
@@ -42,7 +43,9 @@
     "mariadb": "^2.1.0",
     "mocha": "^6.2.0",
     "mongoose": "^5.4.20",
+    "newrelic": "^5.10.0",
     "nyc": "^13.3.0",
+    "postcss": "^7.0.17",
     "react": "^16.8.5",
     "react-css-modules": "^4.7.9",
     "react-dom": "^16.8.5",
