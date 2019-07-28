@@ -32,3 +32,6 @@ sample-data/data
 
 # test coverage
 .nyc_output
+
+# newrelic
+newrelic.js
