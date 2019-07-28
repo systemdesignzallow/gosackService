@@ -24,11 +24,11 @@ app.get('/houses/*', (req, res) => {
           res.send(rows); 
         })
         .then((res) => {
-          console.log(res);
+          //console.log(res);
           conn.end();
         })
         .catch(err => {
-          console.log(`Error: ${err}`);
+          //console.log(`Error: ${err}`);
           conn.end();
         })
     }).catch(err => {
@@ -45,11 +45,11 @@ app.get('/houses/*', (req, res) => {
           res.send(rows); 
         })
         .then((res) => {
-          console.log(res);
+          //console.log(res);
           conn.end();
         })
         .catch(err => {
-          console.log(`Error: ${err}`);
+          //console.log(`Error: ${err}`);
           conn.end();
         })
     }).catch(err => {
