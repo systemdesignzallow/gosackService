@@ -2,7 +2,7 @@ require('newrelic');
 require('dotenv').config();
 const express = require('express');
 const House = require('../db/index');
-const getHouse = require('../db/models/get');
+const getHouse = require('../db/models/getHouse');
 const cors = require('cors');
 const app = express();
 
@@ -14,9 +14,14 @@ function getRandomInt(max) {
 }
 
 // Read / GET - read a house
-// abstact to models
 app.get('/houses/*', (req, res) => {
-  getHouse(req, res);  
+  let houseID = req.path.split('/');
+  houseID = houseID[houseID.length - 1];
+  getHouse(houseID)
+    .then(
+      rows => res.send(rows),
+      err => res.sendStatus(400)
+    );
 });
 
   app.get('/test', (req, res) => {
@@ -24,17 +29,17 @@ app.get('/houses/*', (req, res) => {
     House.getConnection()
     .then(conn => {
       conn.query(`SELECT * FROM homes WHERE homeID=${House.escape(houseID)}`)
-        .then((rows) => {
-          res.send(rows); 
-          conn.end();
-        })
-        .catch(err => {
-          conn.end();
-        })
-    }).catch(err => {
-      console.log(`Not connected to MariaDB: ${err}`);
+        .then(
+          rows => {
+            res.send(rows); 
+            conn.end();
+          },
+          err => {
+            res.sendStatus(400);
+
+          });
+      });
     });
-  });
 
   // Delete / DELETE - delete an item
   // app.delete('/houses/delete/*', (req, res) => {
