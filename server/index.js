@@ -1,9 +1,8 @@
 require('newrelic');
 require('dotenv').config();
 const express = require('express');
-const { House } = require('../db/index');
+const House = require('../db/index');
 const cors = require('cors');
-const path = require('path');
 const app = express();
 
 app.use(express.static('./public'));
@@ -14,21 +13,27 @@ function getRandomInt(max) {
 }
 
 // Read / GET - read a house
+// abstact to models
 app.get('/houses/*', (req, res) => {
   let houseID = req.path.split('/');
   houseID = houseID[houseID.length - 1];
   House.getConnection()
     .then(conn => {
-      conn.query(`SELECT * FROM homes WHERE homeID=${houseID}`)
-        .then((rows) => {
+      let sql = `SELECT * FROM homes WHERE homeID=?`;
+      conn.query(sql, [houseID])
+        .then(rows => {
           res.send(rows); 
           conn.end();
         })
         .catch(err => {
           conn.end();
+          console.error(err);
+          res.sendStatus(400);
+          res.render('QUERY ERROR', err);
         })
     }).catch(err => {
       console.log(`Not connected to MariaDB: ${err}`);
+      res.render('DATABASE ERRROR', err);
     });
   });
 
@@ -36,13 +41,12 @@ app.get('/houses/*', (req, res) => {
     let houseID = getRandomInt(1e7);
     House.getConnection()
     .then(conn => {
-      conn.query(`SELECT * FROM homes WHERE homeID=${houseID}`)
+      conn.query(`SELECT * FROM homes WHERE homeID=${House.escape(houseID)}`)
         .then((rows) => {
           res.send(rows); 
           conn.end();
         })
         .catch(err => {
-          //console.log(`Error: ${err}`);
           conn.end();
         })
     }).catch(err => {
