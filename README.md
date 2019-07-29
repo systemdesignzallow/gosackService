@@ -29,7 +29,7 @@ npm install
     "test:client:circleci": "mocha ./public/test-bundle.js --require ./test/setup.js",
     "build": "webpack --config ./webpack.config.js --mode development",
     "start": "webpack --config ./webpack.config.js --watch  --mode development & nodemon ./server/index.js",
-    "start:prod": "node ./server/index.js"
+    "start-dev": "node ./server/index.js"
 ```
 
 
