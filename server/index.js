@@ -22,13 +22,9 @@ app.get('/houses/*', (req, res) => {
       conn.query(`SELECT * FROM homes WHERE homeID=${houseID}`)
         .then((rows) => {
           res.send(rows); 
-        })
-        .then((res) => {
-          //console.log(res);
           conn.end();
         })
         .catch(err => {
-          //console.log(`Error: ${err}`);
           conn.end();
         })
     }).catch(err => {
@@ -43,9 +39,6 @@ app.get('/houses/*', (req, res) => {
       conn.query(`SELECT * FROM homes WHERE homeID=${houseID}`)
         .then((rows) => {
           res.send(rows); 
-        })
-        .then((res) => {
-          //console.log(res);
           conn.end();
         })
         .catch(err => {
