@@ -2,6 +2,7 @@ require('newrelic');
 require('dotenv').config();
 const express = require('express');
 const House = require('../db/index');
+const getHouse = require('../db/models/get');
 const cors = require('cors');
 const app = express();
 
@@ -15,27 +16,8 @@ function getRandomInt(max) {
 // Read / GET - read a house
 // abstact to models
 app.get('/houses/*', (req, res) => {
-  let houseID = req.path.split('/');
-  houseID = houseID[houseID.length - 1];
-  House.getConnection()
-    .then(conn => {
-      let sql = `SELECT * FROM homes WHERE homeID=?`;
-      conn.query(sql, [houseID])
-        .then(rows => {
-          res.send(rows); 
-          conn.end();
-        })
-        .catch(err => {
-          conn.end();
-          console.error(err);
-          res.sendStatus(400);
-          res.render('QUERY ERROR', err);
-        })
-    }).catch(err => {
-      console.log(`Not connected to MariaDB: ${err}`);
-      res.render('DATABASE ERRROR', err);
-    });
-  });
+  getHouse(req, res);  
+});
 
   app.get('/test', (req, res) => {
     let houseID = getRandomInt(1e7);
