@@ -1,0 +1,11 @@
+config:
+  target: "http://localhost:3001"
+  processor: './testHelpers.js'
+  phases:
+    - duration: 60
+      arrivalRate: 1000
+scenarios:
+  - flow:
+    - function: 'getRandomInt'
+    - get:
+        url: "/houses/{{ number }}"
