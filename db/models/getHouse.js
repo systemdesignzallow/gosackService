@@ -2,25 +2,26 @@ const House = require('../index');
 
 let getHouse = (houseID) => {
   return new Promise ((resolve, reject) => {
-    console.log(typeof Number.isNaN(parseInt(houseID, 10)));
     if (Number.isNaN(parseInt(houseID, 10))) {
-      console.log('error');
+      console.log(houseID);
       throw new Error('Bad Request');
     }   
 
     House.getConnection()
       .then(conn => {
         let sql = `SELECT * FROM homes WHERE homeID=?`;
-        return conn.query(sql, [houseID]);
+        return [conn.query(sql, [houseID]), conn];
       })
-      .then(rows => {
+      .then(([rows, conn]) => {
         if(rows.length === 0) {
           throw new Error('No record found');
         }
+        conn.end();
         resolve(rows);
       })
       .catch(err => {
         console.error(err);
+        conn.end();
         reject(err);
       })
   });
