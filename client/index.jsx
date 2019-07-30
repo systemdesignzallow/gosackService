@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GenDesc from './app.jsx';
+import GenDesc from './App.jsx';
 
-fetch(
-  `http://localhost:3001/houses/${Math.floor(Math.random() * 98)}`
-)
+fetch(`http://localhost:3001/houses/${Math.floor(Math.random() * 98)}`)
   .then(res => res.json())
   .then(house => ReactDOM.render(<GenDesc house={house} />, document.getElementById('gendesc')));

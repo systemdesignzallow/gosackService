@@ -16,32 +16,32 @@ app.get('/houses/:houseID', (req, res) => {
     .then(rows => res.send(rows))
     .catch(err => {
       if (err.message === 'Bad Request') {
-        res.sendStatus(400)
+        res.sendStatus(400);
       } else if (err.message === 'No record found') {
-        res.sendStatus(404)
+        res.sendStatus(404);
       } else {
         res.sendStatus(500);
       }
-    }); 
+    });
 });
 
-  // Delete / DELETE - delete an item
-  // app.delete('/houses/delete/*', (req, res) => {
-  //   let houseID = req.path.split('/');
-  //   houseID = houseID[houseID.length - 1];
-  //   House.findOneAndDelete({ _id: houseID }, (err, docs) => {
-  //     res.send(docs);
-  // });
+// Delete / DELETE - delete an item
+// app.delete('/houses/delete/*', (req, res) => {
+//   let houseID = req.path.split('/');
+//   houseID = houseID[houseID.length - 1];
+//   House.findOneAndDelete({ _id: houseID }, (err, docs) => {
+//     res.send(docs);
+// });
 
-  // Update / PUT - update an item
-  // app.put('/houses/update/*', (req, res) => {
-  //   let houseID = req.path.split('/');
-  //   houseID = houseID[houseID.length - 1];
-  //   House.findOneAndUpdate({ _id: houseID }, (err, docs) => {
-  //     res.send(docs);
-  // });
+// Update / PUT - update an item
+// app.put('/houses/update/*', (req, res) => {
+//   let houseID = req.path.split('/');
+//   houseID = houseID[houseID.length - 1];
+//   House.findOneAndUpdate({ _id: houseID }, (err, docs) => {
+//     res.send(docs);
+// });
 
-  // Create / POST - create a new item
+// Create / POST - create a new item
 //   app.post('/houses/create/', (req, res) => {
 //     House.insert({
 //       appliances: req.appliances,

@@ -5,7 +5,7 @@
 ## Related Projects
 
 <https://github.com/systemdesignzallow>
-  
+
 ## Table of Contents
 
 1. [Installing Dependencies](#InstallingDependencies)
@@ -32,5 +32,3 @@ npm install
     "start": "node ./server/index.js",
     "start-dev": "systemctl start mariadb & webpack --config ./webpack.config.js --watch  --mode development & nodemon ./server/index.js"
 ```
-
-

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FactsAndFeatures from './quickFacts.jsx';
+import FactsAndFeatures from './QuickFacts.jsx';
 import TopDescription from './TopDescription.jsx';
 import Details from './Details.jsx';
 import style from './styles.css';

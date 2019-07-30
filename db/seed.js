@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const createSampleFile = require('../sample-data/generate');
 
-
 module.exports = (model, callback) => {
   model.deleteMany({}, (err, data) => {
     createSampleFile((err, data) => {
@@ -17,8 +16,6 @@ module.exports = (model, callback) => {
           }
         });
       });
-    })
-  })
-  
-  
-}
+    });
+  });
+};
