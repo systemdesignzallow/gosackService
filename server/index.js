@@ -2,7 +2,7 @@ require('newrelic');
 require('dotenv').config();
 const express = require('express');
 const House = require('../db/index');
-const getHouse = require('../db/models/getHouse');
+const Model = require('../db/models/index');
 const cors = require('cors');
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(cors());
 // Read / GET - read a house
 app.get('/houses/:houseID', (req, res) => {
   const { houseID } = req.params;
-  getHouse(houseID)
+  Model.getHouse(houseID)
     .then(rows => res.send(rows))
     .catch(err => {
       if (err.message === 'Bad Request') {
