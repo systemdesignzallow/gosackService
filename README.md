@@ -22,7 +22,7 @@ npm install
 
 ## Development
 
-This project adheres to the AirBnB style guide.
+This project adheres to the [AirBnb Style Guide](https://github.com/airbnb/javascript).
 
 ## Usage
 
