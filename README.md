@@ -1,6 +1,6 @@
-# Zallo Project
+# Zallo SDC Project
 
-> General Description Service
+> General Description Service for Zallow.
 
 ## Related Projects
 
@@ -11,7 +11,7 @@
 1. [Installing Dependencies](#InstallingDependencies)
 1. [Usage](#Usage)
 
-### Installing Dependencies
+## Installing Dependencies
 
 From within the root directory:
 
@@ -19,6 +19,10 @@ From within the root directory:
 npm install -g webpack nodemon
 npm install
 ```
+
+## Development
+
+This project adheres to the AirBnB style guide.
 
 ## Usage
 
