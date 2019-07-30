@@ -1,24 +1,20 @@
 const House = require('../index');
+const { generateQueryForCreate } = require('./modelHelpers');
 
-let createHouse = (houseID, houseData) => {
+let createHouse = houseData => {
   return new Promise((resolve, reject) => {
     if (Number.isNaN(parseInt(houseID, 10))) {
       throw new Error('Bad Request');
     }
-
-    // Single table syntax example
-    // INSERT INTO person (first_name, last_name) VALUES ('John', 'Doe');
-
     House.getConnection()
       .then(conn => {
-        let sql = `INSERT INTO homes  
-
-        `;
+        let sql = generateQueryForCreate();
         return [conn.query(sql, [houseID]), conn];
       })
       .then(([rows, conn]) => {
+        // what is this behavior now?
         if (rows.length === 0) {
-          throw new Error('No record found');
+          // throw new Error('No record found');
         }
         conn.end();
         resolve(rows);
