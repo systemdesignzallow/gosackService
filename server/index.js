@@ -9,10 +9,6 @@ const app = express();
 app.use(express.static('./public'));
 app.use(cors());
 
-// function getRandomInt(max) {
-//   return Math.floor(Math.random() * Math.floor(max));
-// }
-
 // Read / GET - read a house
 app.get('/houses/:houseID', (req, res) => {
   const { houseID } = req.params;
@@ -28,26 +24,6 @@ app.get('/houses/:houseID', (req, res) => {
       }
     }); 
 });
-
-// 500 database
-// 404 not found
-// 400 bad request
-
-  // app.get('/test', (req, res) => {
-  //   let houseID = getRandomInt(1e7);
-  //   House.getConnection()
-  //   .then(conn => {
-  //     conn.query(`SELECT * FROM homes WHERE homeID=${House.escape(houseID)}`)
-  //       .then(
-  //         rows => {
-  //           res.send(rows); 
-  //           conn.end();
-  //         },
-  //         err => {
-  //           res.sendStatus(400);
-  //         });
-  //     });
-  //   });
 
   // Delete / DELETE - delete an item
   // app.delete('/houses/delete/*', (req, res) => {

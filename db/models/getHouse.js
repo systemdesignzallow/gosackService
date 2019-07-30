@@ -3,7 +3,6 @@ const House = require('../index');
 let getHouse = (houseID) => {
   return new Promise ((resolve, reject) => {
     if (Number.isNaN(parseInt(houseID, 10))) {
-      console.log(houseID);
       throw new Error('Bad Request');
     }   
 
