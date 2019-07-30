@@ -35,3 +35,6 @@ sample-data/data
 
 # newrelic
 newrelic.js
+
+# no bundle
+public/app-bundle.js
