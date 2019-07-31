@@ -127,8 +127,7 @@ let fake = function(outputDataPath, recordQuantity) {
         house.stories = Math.floor(Math.random() * 3 + 1);
         house.floorSize = Math.floor(Math.random() * 3750 + 750);
         house.spaces = ['Pool', 'N/A'][Math.floor(Math.random() * 2)];
-        house.houseDescription =
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae eros massa. Etiam pretium ex purus, vel tempus diam pretium eget. Curabitur hendrerit, tortor sed ultrices finibus, tortor eros condimentum tortor, ac mollis augue arcu sed felis. Vestibulum et aliquet ex. Aenean cursus elementum eleifend. Curabitur sit amet finibus mauris, et porttitor justo. Maecenas imperdiet euismod elit, eu dictum nibh faucibus quis. Pellentesque quis ullamcorper dolor. Morbi vestibulum eget ligula non venenatis.';
+        house.houseDescription = faker.lorem.paragraph();
         house.houseType = houseTypes[Math.floor(Math.random() * houseTypes.length)];
         house.yearBuilt = Math.floor(Math.random() * 88 + 1930);
         house.heating = heatingTypes[Math.floor(Math.random() * heatingTypes.length)];
