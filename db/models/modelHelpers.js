@@ -19,7 +19,7 @@ let helpers = {
       let value = typeof houseData[key] === 'string' ? `"${houseData[key]}"` : houseData[key];
       values.push(value);
     }
-    return `${top} ${keys.join(', ')}) VALUES ( ${values.join(', ')})`;
+    return `${top} ${keys.join(', ')}) VALUES ( ${values.join(', ')})`; 
   }
 };
 
