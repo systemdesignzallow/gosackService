@@ -18,6 +18,7 @@ app.post('/houses/', jsonParser, (req, res) => {
   Model.createHouse(req.body)
     .then(res.sendStatus(200))
     .catch(err => {
+      console.error(err);
       res.sendStatus(500);
     });
 });

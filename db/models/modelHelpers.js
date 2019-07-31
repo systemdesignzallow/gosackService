@@ -16,7 +16,7 @@ let helpers = {
     let values = [];
     for (let key in houseData) {
       keys.push(`${key}`);
-      let value = typeof houseData[key] === 'string' ? `'${houseData[key]}'` : houseData[key];
+      let value = typeof houseData[key] === 'string' ? `"${houseData[key]}"` : houseData[key];
       values.push(value);
     }
     return `${top} ${keys.join(', ')}) VALUES ( ${values.join(', ')})`;
