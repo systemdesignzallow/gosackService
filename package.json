@@ -20,7 +20,7 @@
   "scripts": {
     "precommit": "NODE_ENV=production lint-staged",
     "test-mocha": "mocha ./test/mocha/test.js --exit",
-    "test": "jest",
+    "test": "jest --detectOpenHandles",
     "test:client": "webpack --watch --config ./webpack.config.js --mode development & nodemon ./server/test.js",
     "test:client:circleci": "mocha ./public/test-bundle.js --require ./test/setup.js",
     "build": "webpack --config ./webpack.config.js --mode production",
@@ -63,9 +63,11 @@
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
+    "axios": "^0.19.0",
     "babel-loader": "^8.0.5",
     "babel-preset-airbnb": "^3.2.1",
     "csv-writer": "^1.5.0",
+    "csvtojson": "^2.0.10",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
@@ -78,6 +80,7 @@
     "lolcat": "^1.0.0",
     "nyancat": "0.0.5",
     "prettier": "1.16.4",
+    "regenerator-runtime": "^0.13.3",
     "style-loader": "^0.23.1"
   }
 }
