@@ -14,9 +14,6 @@ let updateHouse = (houseID, houseData) => {
         return [conn.query(sql, [houseID]), conn];
       })
       .then(([rows, conn]) => {
-        if (rows.length === 0) {
-          throw new Error('No record found');
-        }
         conn.end();
         resolve(rows);
       })

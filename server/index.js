@@ -1,13 +1,26 @@
 require('newrelic');
 require('dotenv').config();
-const express = require('express');
+
+const bodyParser = require('body-parser');
 const House = require('../db/index');
 const Model = require('../db/models/index');
 const cors = require('cors');
+const express = require('express');
 const app = express();
 
 app.use(express.static('./public'));
 app.use(cors());
+
+var jsonParser = bodyParser.json();
+
+// Create / POST - create a house
+app.post('/houses/', jsonParser, (req, res) => {
+  Model.createHouse(req.body)
+    .then(res.sendStatus(200))
+    .catch(err => {
+      res.sendStatus(500);
+    });
+});
 
 // Read / GET - read a house
 app.get('/houses/:houseID', (req, res) => {
@@ -25,53 +38,25 @@ app.get('/houses/:houseID', (req, res) => {
     });
 });
 
-// Delete / DELETE - delete an item
-// app.delete('/houses/delete/*', (req, res) => {
-//   let houseID = req.path.split('/');
-//   houseID = houseID[houseID.length - 1];
-//   House.findOneAndDelete({ _id: houseID }, (err, docs) => {
-//     res.send(docs);
-// });
-
 // Update / PUT - update an item
-// app.put('/houses/update/*', (req, res) => {
-//   let houseID = req.path.split('/');
-//   houseID = houseID[houseID.length - 1];
-//   House.findOneAndUpdate({ _id: houseID }, (err, docs) => {
-//     res.send(docs);
-// });
+app.put('/houses/:houseID', jsonParser, (req, res) => {
+  const { houseID } = req.params;
+  Model.updateHouse(houseID, req.body)
+    .then(res.sendStatus(200))
+    .catch(err => {
+      res.sendStatus(500);
+    });
+});
 
-// Create / POST - create a new item
-//   app.post('/houses/create/', (req, res) => {
-//     House.insert({
-//       appliances: req.appliances,
-//        interiorFeatures: req.interiorFeatures,
-//        construction: req.construction,
-//        roof: req.roof,
-//        exterior: req.exterior,
-//        flooring: req.flooring,
-//        homeId: req.homeId,
-//        homeAddress: req.homeAddress,
-//        price: req.price,
-//        beds: req.beds,
-//        baths: req.baths,
-//        rooms: req.rooms,
-//        stories: req.stories,
-//        floorSize: req.floorSize,
-//        spaces: req.spaces,
-//        houseDescription: req.houseDescription,
-//        houseType: req.houseType,
-//        yearBuilt: req.yearBuilt,
-//        heating: req.heating,
-//        cooling: req.cooling,
-//        parking: req.parking,
-//        lotSize: req.lotSize,
-//        daysListed: req.daysListed,
-//        saves: req.saves
-//       }, (err, docs) => {
-//       res.send(docs);
-//   });
-// });
+// Delete / DELETE - delete an item
+app.delete('/houses/:houseID', (req, res) => {
+  const { houseID } = req.params;
+  Model.deleteHouse(houseID)
+    .then(res.sendStatus(200))
+    .catch(err => {
+      res.sendStatus(500);
+    });
+});
 
 const PORT = process.env.PORT || 3001;
 

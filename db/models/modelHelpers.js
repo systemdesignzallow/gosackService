@@ -1,23 +1,27 @@
-let generateQueryForUpdate = houseData => {
-  let top = `UPDATE homes WHERE `;
-  let queryParameters = [];
-  let bottom = ` WHERE houseID=?`;
-  for (let key in houseData) {
-    queryParameters.push(`${key} = ${houseData[key]}`);
+let helpers = {
+  generateQueryForUpdate: houseData => {
+    let top = `UPDATE homes SET`;
+    let queryParameters = [];
+    let bottom = `WHERE homeID=?`;
+    for (let key in houseData) {
+      let value = typeof houseData[key] === 'string' ? `'${houseData[key]}'` : houseData[key];
+      queryParameters.push(`${key} = ${value}`);
+    }
+    return `${top} ${queryParameters.join(', ')} ${bottom}`;
+  },
+
+  generateQueryForCreate: houseData => {
+    let top = `INSERT INTO homes (`;
+    let keys = [];
+    let values = [];
+    for (let key in houseData) {
+      keys.push(`${key}`);
+      let value = typeof houseData[key] === 'string' ? `'${houseData[key]}'` : houseData[key];
+      values.push(value);
+    }
+    console.log(`${top} ${keys.join(', ')}) VALUES ( ${values.join(', ')})`);
+    return `${top} ${keys.join(', ')}) VALUES ( ${values.join(', ')})`;
   }
-  return queryParameters.join(', ');
 };
 
-let generateQueryForCreate = houseData => {
-  let top = `INSERT INTO homes ( `;
-  let keys = [];
-  let values = [];
-  let bottom = ` WHERE houseID=?`;
-  for (let key in houseData) {
-    keys.push(`${key}`);
-    values.push(`${houseData[key]}`);
-  }
-  return `${top} ${keys.join(', ')}) VALUES ( ${values.join(', ')}) ${bottom}`;
-};
-
-module.exports = generateQuery;
+module.exports = helpers;
