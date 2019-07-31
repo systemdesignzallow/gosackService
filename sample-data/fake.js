@@ -3,7 +3,7 @@ let path = require('path');
 let fs = require('fs');
 
 let cliArgs = process.argv.slice(2);
-let outputDataPath = cliArgs[0];
+let outputDataPath = path.resolve(cliArgs[0]);
 let recordQuantity = cliArgs[1];
 
 let getDateTime = function(date, recordQuantity) {
@@ -68,9 +68,9 @@ let fake = function(outputDataPath, recordQuantity) {
         let city = faker.address.city();
         let state = faker.address.state();
         let zip = faker.address.zipCode();
-        let address = `${streetAddress} ${streetName} \n ${city} ${state} ${zip}`;
-        let houseTypes = ['Single Family', 'Townhouse', 'Condo'];
-        let heatingTypes = ['Other', 'Central', 'Electric', 'Forced Air', 'Gas'];
+        let address = `${streetAddress} ${streetName}\n${city} ${state} ${zip}`;
+        let houseTypes = ['Mansion', 'Villa', 'Dormant Volcano', 'Factory', 'Skyscraper'];
+        let heatingTypes = ['Nuclear Fission', 'Fusion Reactor', 'Geothermal'];
         let coolingTypes = ['Central', 'Refrigeration', 'Roof', 'Solar'];
         let appliances = [
           'Dishwasher',
@@ -81,9 +81,23 @@ let fake = function(outputDataPath, recordQuantity) {
           'Refrigerator'
         ];
         let flooring = ['Carpet', 'Laminate', 'Tile', 'Hardwood'];
-        let interiorFeatures = ['Fireplace', 'Vaulted Ceiling', 'Ceiling Fan'];
+        let interiorFeatures = [
+          'Crime Lab',
+          'Batcave',
+          'Secret Entrance',
+          'Secret Bookcase Exit',
+          'Moat',
+          'Henchpersons Quarters',
+          'Harbor',
+          'Armory',
+          'Integrated Weapons',
+          'Booby-traps',
+          'Shark Tank',
+          'Helipad',
+          'Manufacturing Facility'
+        ];
         let construction = ['Modern', 'Spanish', 'Frame - Wood', 'Pueblo'];
-        let roofTypes = ['Tile', 'Built up'];
+        let roofTypes = ['Tile', 'Flat'];
         let exteriorTypes = ['Stucco', 'Brick', 'Stone Veneer', 'Wood'];
         let house = {};
 
@@ -99,7 +113,7 @@ let fake = function(outputDataPath, recordQuantity) {
           );
         }
 
-        house.address = address;
+        house.homeAddress = address;
         house.construction = construction[Math.floor(Math.random() * construction.length)];
         house.roof = roofTypes[Math.floor(Math.random() * roofTypes.length)];
         house.exterior = exteriorTypes[Math.floor(Math.random() * exteriorTypes.length)];
@@ -152,7 +166,10 @@ let fake = function(outputDataPath, recordQuantity) {
 };
 
 async function run(outputDataPath, recordQuantity) {
+  console.log(outputDataPath);
   await fake(outputDataPath, recordQuantity);
 }
 
-module.exports = run;
+run(outputDataPath, recordQuantity);
+
+//module.exports = run;
