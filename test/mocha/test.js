@@ -1,11 +1,11 @@
 const { expect } = require('chai');
-const { House_test, House } = require('../db/index');
+const { House_test, House } = require('../../db/index');
 const fs = require('fs');
 const path = require('path');
-const app = require('../server/index');
+const app = require('../../server/index');
 const createSampleFile = require('../sample-data/generate');
 const request = require('supertest');
-const seed = require('../db/seed');
+const seed = require('../../db/seed');
 seed(House);
 House.find({ _id: 98 }, (err, docs) => console.log(docs));
 beforeEach(done => {

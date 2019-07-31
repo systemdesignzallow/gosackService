@@ -171,4 +171,4 @@ async function run(outputDataPath, recordQuantity) {
 
 run(outputDataPath, recordQuantity);
 
-//module.exports = run;
+module.exports = run;
