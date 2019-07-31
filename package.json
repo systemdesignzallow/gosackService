@@ -30,6 +30,7 @@
   "dependencies": {
     "artillery": "^1.6.0-28",
     "babel-plugin-react-css-modules": "^5.2.4",
+    "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "circleci": "^0.3.3",
     "cors": "^2.8.5",
