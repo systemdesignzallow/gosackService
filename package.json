@@ -27,7 +27,7 @@
     "build": "webpack --config ./webpack.config.js --mode production",
     "build-dev": "webpack --config ./webpack.config.js --mode development",
     "start": "node ./server/index.js",
-    "start-dev": "systemctl start mariadb & webpack --config ./webpack.config.js --watch  --mode development & NODE_ENV='development' nodemon ./server/index.js"
+    "start-dev": "webpack --config ./webpack.config.js --watch  --mode development & NODE_ENV='development' nodemon ./server/index.js"
   },
   "dependencies": {
     "babel-plugin-react-css-modules": "^5.2.4",
