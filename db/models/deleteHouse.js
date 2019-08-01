@@ -13,7 +13,6 @@ let deleteHouse = houseID => {
       })
       .then(([rows, conn]) => {
         conn.end();
-        console.log(rows)
         resolve(rows);
       })
       .catch(err => {

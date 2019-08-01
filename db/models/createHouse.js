@@ -6,7 +6,6 @@ let createHouse = houseData => {
     House.getConnection()
       .then(conn => {
         let [sql, values] = generateQueryForCreate(houseData);
-        console.log(sql, values);
         return [conn.query(sql, values), conn];
       })
       .then(([rows, conn]) => {
