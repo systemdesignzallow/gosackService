@@ -26,7 +26,7 @@ This project adheres to the [AirBnb Style Guide](https://github.com/airbnb/javas
 
 ## Usage
 
-## Environment variables
+### Environment variables
 
 Environment variables are set in the `./.env` file. A `.env.example` file is provided as a template.
 
