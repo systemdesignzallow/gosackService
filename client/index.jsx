@@ -5,7 +5,6 @@ import GenDesc from './components/App.jsx';
 // ${servicePort}
 
 const houseId = window.location.pathname;
-console.log(houseId);
 fetch(`http://localhost:6001${houseId}}`)
   .then(house => house.json())
   .then(house => ReactDOM.render(<GenDesc house={house} />, document.getElementById('gendesc')));
