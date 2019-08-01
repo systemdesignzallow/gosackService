@@ -25,8 +25,8 @@ let fake = {
       // for fs
       let writeStream = fs.createWriteStream(path.resolve(outputDataPath));
 
-      const createCsvStringifier = require('csv-writer').createObjectCsvStringifier;
-      const csvStringifier = createCsvStringifier({
+      const { createObjectCsvStringifier } = require('csv-writer');
+      const csvStringifier = createObjectCsvStringifier({
         path: path.join(__dirname, 'data.csv'),
         header: [
           { id: 'appliances', title: 'APPLIANCES' },

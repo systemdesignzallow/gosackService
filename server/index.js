@@ -20,7 +20,7 @@ app.post('/houses/', jsonParser, (req, res) => {
       if (affectedRows === 0) {
         res.sendStatus(418);
       } else {
-        res.sendStatus(200);
+        res.sendStatus(201);
       }
     })
     .catch(err => {

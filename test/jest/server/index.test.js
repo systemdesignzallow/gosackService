@@ -1,6 +1,7 @@
 const { testHouse, updateHouse, makeTableQuery } = require('../testHelpers');
 const House = require('../../../db/index');
 const axios = require('axios');
+const { servicePort } = require('../../../config');
 const regeneratorRuntime = require('regenerator-runtime');
 
 // setup database for records
@@ -23,7 +24,7 @@ let setupDatabase = async () => {
 
 let postHouse = async () => {
   try {
-    await axios.post('http://localhost:3001/houses', testHouse);
+    await axios.post(`http://localhost:${servicePort}/houses`, testHouse);
   } catch (e) {
     console.error(e);
   }
@@ -31,7 +32,7 @@ let postHouse = async () => {
 
 let getHouse = async () => {
   try {
-    return await axios.get('http://localhost:3001/houses/1');
+    return await axios.get(`http://localhost:${servicePort}/houses/1`);
   } catch (e) {
     console.error(e);
   }
@@ -39,7 +40,7 @@ let getHouse = async () => {
 
 let putHouse = async () => {
   try {
-    return await axios.put('http://localhost:3001/houses/1', updateHouse);
+    return await axios.put(`http://localhost:${servicePort}/houses/1`, updateHouse);
   } catch (e) {
     console.error(e);
   }
@@ -47,7 +48,7 @@ let putHouse = async () => {
 
 let deleteHouse = async () => {
   try {
-    return await axios.delete('http://localhost:3001/houses/1');
+    return await axios.delete(`http://localhost:${servicePort}/houses/1`);
   } catch (e) {
     console.error(e);
   }
