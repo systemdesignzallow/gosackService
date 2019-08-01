@@ -1,5 +1,5 @@
 config:
-  target: 'http://localhost:3001'
+  target: 'http://localhost:6001'
   phases:
     - duration: 60
       arrivalRate: 31
