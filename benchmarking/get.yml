@@ -1,5 +1,5 @@
 config:
-  target: 'http://localhost:6001'
+  target: 'http://localhost:3001'
   processor: './benchmarkingHelpers.js'
   phases:
     - duration: 60
