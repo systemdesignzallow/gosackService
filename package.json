@@ -20,17 +20,16 @@
   "scripts": {
     "precommit": "NODE_ENV=production lint-staged",
     "test-mocha": "mocha ./test/mocha/test.js --exit",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test": "NODE_ENV='test' jest",
+    "test-coverage": "jest --coverage",
     "test:client": "webpack --watch --config ./webpack.config.js --mode development & nodemon ./server/test.js",
     "test:client:circleci": "mocha ./public/test-bundle.js --require ./test/setup.js",
     "build": "webpack --config ./webpack.config.js --mode production",
     "build-dev": "webpack --config ./webpack.config.js --mode development",
     "start": "node ./server/index.js",
-    "start-dev": "systemctl start mariadb & webpack --config ./webpack.config.js --watch  --mode development & nodemon ./server/index.js"
+    "start-dev": "systemctl start mariadb & webpack --config ./webpack.config.js --watch  --mode development & NODE_ENV='development' nodemon ./server/index.js"
   },
   "dependencies": {
-    "artillery": "^1.6.0-28",
     "babel-plugin-react-css-modules": "^5.2.4",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
@@ -38,7 +37,6 @@
     "cors": "^2.8.5",
     "css-loader": "^2.1.1",
     "css-modules-require-hook": "^4.2.3",
-    "dotenv": "^7.0.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "express": "^4.16.4",
@@ -69,6 +67,7 @@
     "babel-preset-airbnb": "^3.2.1",
     "csv-writer": "^1.5.0",
     "csvtojson": "^2.0.10",
+    "dotenv": "^7.0.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
