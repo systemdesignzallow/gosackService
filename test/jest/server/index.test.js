@@ -91,7 +91,7 @@ it('delete record', async () => {
     await postHouse();
     await deleteHouse();
     let deletedHouse = await getHouse();
-    expect(undefined).toBe(deletedHouse.data[0]);
+    expect(deletedHouse.data).toEqual([]);
   } catch (e) {
     console.error(e);
     expect(true).toEqual(false);

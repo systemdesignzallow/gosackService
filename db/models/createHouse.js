@@ -5,8 +5,9 @@ let createHouse = houseData => {
   return new Promise((resolve, reject) => {
     House.getConnection()
       .then(conn => {
-        let sql = generateQueryForCreate(houseData);
-        return [conn.query(sql), conn];
+        let [sql, values] = generateQueryForCreate(houseData);
+        console.log(sql, values);
+        return [conn.query(sql, values), conn];
       })
       .then(([rows, conn]) => {
         conn.end();

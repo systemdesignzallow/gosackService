@@ -53,7 +53,13 @@ app.put('/houses/:houseID', jsonParser, (req, res) => {
 app.delete('/houses/:houseID', (req, res) => {
   const { houseID } = req.params;
   Model.deleteHouse(houseID)
-    .then(res.sendStatus(200))
+    .then(({ affectedRows }) => {
+      if (affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(200);
+      }
+    })
     .catch(err => {
       res.sendStatus(500);
     });

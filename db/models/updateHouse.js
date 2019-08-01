@@ -7,11 +7,11 @@ let updateHouse = (houseID, houseData) => {
       throw new Error('Bad Request');
     }
 
-    let sql = generateQueryForUpdate(houseData);
+    let [sql, queryParameters] = generateQueryForUpdate(houseData);
 
     House.getConnection()
       .then(conn => {
-        return [conn.query(sql, [houseID]), conn];
+        return [conn.query(sql, [...queryParameters, houseID]), conn];
       })
       .then(([rows, conn]) => {
         conn.end();
