@@ -16,7 +16,13 @@ var jsonParser = bodyParser.json();
 // Create / POST - create a house
 app.post('/houses/', jsonParser, (req, res) => {
   Model.createHouse(req.body)
-    .then(res.sendStatus(200))
+    .then(({ affectedRows }) => {
+      if (affectedRows === 0) {
+        res.sendStatus(418);
+      } else {
+        res.sendStatus(200);
+      }
+    })
     .catch(err => {
       console.error(err);
       res.sendStatus(500);
@@ -43,7 +49,13 @@ app.get('/houses/:houseID', (req, res) => {
 app.put('/houses/:houseID', jsonParser, (req, res) => {
   const { houseID } = req.params;
   Model.updateHouse(houseID, req.body)
-    .then(res.sendStatus(200))
+    .then(({ affectedRows }) => {
+      if (affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(200);
+      }
+    })
     .catch(err => {
       res.sendStatus(500);
     });
