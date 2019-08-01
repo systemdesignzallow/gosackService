@@ -2,6 +2,7 @@ const fake = require('../../../sample-data/fake');
 const fs = require('fs');
 const path = require('path');
 const csv = require('csvtojson');
+const now = require('performance-now');
 const regeneratorRuntime = require('regenerator-runtime');
 const recordQuantity = 1e3;
 
@@ -72,6 +73,18 @@ let makeCsv = async () => {
     console.error(e);
   }
 };
+
+it('record generation takes less than 0.36mS', async () => {
+  try {
+    let maximumTimeAllowed = recordQuantity * 0.36;
+    let t0 = now();
+    let houses = await makeCsv();
+    let t1 = now();
+    expect(t1 - t0).toBeLessThanOrEqual(maximumTimeAllowed);
+  } catch (e) {
+    console.error(e);
+  }
+});
 
 it('makes the correct amount of records', async () => {
   try {

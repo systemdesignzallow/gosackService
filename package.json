@@ -80,6 +80,7 @@
     "jest": "^24.8.0",
     "lolcat": "^1.0.0",
     "nyancat": "0.0.5",
+    "performance-now": "^2.1.0",
     "prettier": "1.16.4",
     "regenerator-runtime": "^0.13.3",
     "style-loader": "^0.23.1"
