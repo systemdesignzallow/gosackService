@@ -2,7 +2,6 @@ require('newrelic');
 require('dotenv').config();
 
 const bodyParser = require('body-parser');
-const House = require('../db/index');
 const Model = require('../db/models/index');
 const cors = require('cors');
 const express = require('express');
