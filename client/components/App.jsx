@@ -1,9 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import FactsAndFeatures from './quickFacts.jsx';
+import FactsAndFeatures from './QuickFacts.jsx';
 import TopDescription from './TopDescription.jsx';
 import Details from './Details.jsx';
-import style from './styles.css';
+import style from '../styles.css';
+const dotenv = require('dotenv');
+dotenv.config();
+const { servicePort } = require('../config');
+
 class GenDesc extends React.Component {
   constructor(props) {
     super();
@@ -14,11 +17,7 @@ class GenDesc extends React.Component {
   }
   componentWillMount() {
     window.addEventListener('house_view', e => {
-      fetch(
-        `http://ec2-52-14-98-3.us-east-2.compute.amazonaws.com/houses/${Math.floor(
-          Math.random() * 98
-        )}`
-      )
+      fetch(`http://localhost:${servicePort}/houses/${Math.floor(Math.random() * 98)}`)
         .then(res => res.json())
         .then(house => this.setState({ house }));
     });

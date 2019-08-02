@@ -1,39 +1,42 @@
-# Zallo Project
+# Zallo SDC Project
 
-> General Description Service
+> General Description Service for Zallow.
 
 ## Related Projects
 
-  - https://github.com/ZalloProject/SimilarHomes
-  - https://github.com/ZalloProject/Form-Service
-  - https://github.com/ZalloProject/Picture-Service
-  - https://github.com/ZalloProject/james-proxy
+<https://github.com/systemdesignzallow>
 
 ## Table of Contents
 
+1. [Installing Dependencies](#InstallingDependencies)
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
 
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
-
-## Development
-
-### Installing Dependencies
+## Installing Dependencies
 
 From within the root directory:
 
 ```sh
-npm install -g webpack
+npm install -g webpack nodemon
 npm install
 ```
 
+## Development
+
+This project adheres to the [AirBnb Style Guide](https://github.com/airbnb/javascript).
+
+## Usage
+
+### Environment variables
+
+Environment variables are set in the `./.env` file. A `.env.example` file is provided as a template.
+
+```JSON
+    "precommit": "NODE_ENV=production lint-staged",
+    "test": "mocha ./test/test.js --exit",
+    "test:client": "webpack --watch --config ./webpack.config.js --mode development & nodemon ./server/test.js",
+    "test:client:circleci": "mocha ./public/test-bundle.js --require ./test/setup.js",
+    "build": "webpack --config ./webpack.config.js --mode production",
+    "build-dev": "webpack --config ./webpack.config.js --mode development",
+    "start": "node ./server/index.js",
+    "start-dev": "systemctl start mariadb & webpack --config ./webpack.config.js --watch  --mode development & nodemon ./server/index.js"
+```

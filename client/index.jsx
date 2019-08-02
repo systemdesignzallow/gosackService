@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import GenDesc from './app.jsx';
+import GenDesc from './components/App.jsx';
+const dotenv = require('dotenv');
+dotenv.config();
+const { servicePort } = require('../config');
 
-fetch(
-  `http://localhost:3001/houses/${Math.floor(Math.random() * 98)}`
-)
-  .then(res => res.json())
+const houseId = window.location.pathname;
+fetch(`http://localhost:${servicePort}${houseId}}`)
+  .then(house => house.json())
   .then(house => ReactDOM.render(<GenDesc house={house} />, document.getElementById('gendesc')));

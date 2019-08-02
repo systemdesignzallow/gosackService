@@ -1,35 +1,26 @@
 const mariadb = require('mariadb');
+require('dotenv').config();
+const { env } = require('../config');
 
-// sock : /run/mysqld/mysqld.sock --I found this by stopping the mariaDb service and attempting to run the cli
-const homes = mariadb.createPool({socketpath: '/run/mysqld/mysqld.sock', user: 'patrick', password:'ekauq', connectionLimit: 5, database:'gosackService'});
+if (env === 'development') {
+  const { devSocketPath, devDbUser, devDbPassword, devDb } = require('../config');
+  const homes = mariadb.createPool({
+    socketpath: devSocketPath,
+    user: devDbUser,
+    password: devDbPassword,
+    database: devDb
+  });
+  
+  module.exports = homes;
+} else if (env === 'test') {
+  const { testSocketPath, testDbUser, testDbPassword, testDb } = require('../config');
+  const homes = mariadb.createPool({
+    socketpath: testSocketPath,
+    user: testDbUser,
+    password: testDbPassword,
+    database: testDb
+  });
 
-module.exports = {
-     House: homes
-  };
-
-// const houseSchema = mongoose.Schema({
-//   _id: Number,
-//   address: String,
-//   price: Number,
-//   beds: Number,
-//   baths: Number,
-//   floorSize: Number,
-//   description: String,
-//   type: String,
-//   year: Number,
-//   heating: String,
-//   cooling: String,
-//   parking: Number,
-//   lotSize: Number,
-//   daysListed: Number,
-//   saves: Number,
-//   appliances: Array,
-//   interiorFeatures: Array,
-//   construction: String,
-//   roof: String,
-//   exterior: String,
-//   flooring: String,
-//   rooms: Number,
-//   stories: Number,
-//   spaces: String,
-// });
+  module.exports = homes;
+}
+// TODO Production

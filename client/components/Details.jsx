@@ -1,11 +1,8 @@
 import React from 'react';
 import ShowMore from './ShowMore.jsx';
-import propTypes from 'prop-types';
-import CssModules from 'react-css-modules';
-import style from './styles.css';
+import style from '../styles.css';
 var Details = ({ house, toggle, handleClick }) => {
   let key = 0;
-  console.log(house);
   return (
     <div className={style.containerInterior}>
       <p className={style.noMargin + ' ' + style.moreInfoTitle}>INTERIOR FEATURES</p>
@@ -38,7 +35,11 @@ var Details = ({ house, toggle, handleClick }) => {
           <h4 className={style.noMargin}>Appliances</h4>
           <div>
             <span className={style.greyedOut}>Appliances included: </span>
-            <div>{house.appliances && house.appliances.length ? house.appliances : 'None'}</div>
+            <div>
+              {house.appliances && house.appliances.length
+                ? house.appliances.split(',').join(', ')
+                : 'None'}
+            </div>
           </div>
         </div>
         <div className={style.containerBiggerFact}>

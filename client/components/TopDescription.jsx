@@ -1,6 +1,6 @@
 import React from 'react';
 import MortgageCalculator from './MortgageCalculator.jsx';
-import style from './styles.css';
+import style from '../styles.css';
 var TopDescription = ({ house }) => {
   return (
     <div className={style.containerTop}>
@@ -10,11 +10,11 @@ var TopDescription = ({ house }) => {
             {house.homeAddress}
           </h1>
         </div>
-        {/* <div>
+        <div>
           <h2 className={style.noMargin} id="line2">
             {house.homeAddress.split('\n')[1]}
           </h2>
-        </div> */}
+        </div>
         <div className={style.lightFacts}>
           <h3 className={style.noMargin}>
             <span>{house.beds} beds</span>
