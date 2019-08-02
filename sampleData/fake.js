@@ -69,7 +69,7 @@ let fake = {
           let city = faker.address.city();
           let state = faker.address.state();
           let zip = faker.address.zipCode();
-          let address = `${streetAddress} ${streetName}\n${city} ${state} ${zip}`;
+          let address = `${streetAddress} ${streetName} ${city} ${state} ${zip}`;
           let houseTypes = ['Mansion', 'Villa', 'Dormant Volcano', 'Factory', 'Skyscraper'];
           let heatingTypes = ['Nuclear Fission', 'Fusion Reactor', 'Geothermal'];
           let coolingTypes = ['Central', 'Refrigeration', 'Roof', 'Solar'];
@@ -78,7 +78,7 @@ let fake = {
             'Garbage Disposal',
             'Microwave',
             'Range / Oven',
-            'Washing/ Drying Unit',
+            'Washer / Dryer Unit',
             'Refrigerator'
           ];
           let flooring = ['Carpet', 'Laminate', 'Tile', 'Hardwood'];
@@ -97,9 +97,9 @@ let fake = {
             'Helipad',
             'Manufacturing Facility'
           ];
-          let construction = ['Modern', 'Spanish', 'Pueblo'];
-          let roofTypes = ['Tile', 'Flat'];
-          let exteriorTypes = ['Stucco', 'Brick', 'Stone Veneer', 'Wood'];
+          let construction = ['Modern', 'Spanish', 'Pueblo', 'Industrial'];
+          let roofTypes = ['Tile', 'Flat', 'Terracotta'];
+          let exteriorTypes = ['Stucco', 'Brick', 'Stone Veneer', 'Wood', 'Steel'];
           let house = {};
 
           house.appliances = [];
@@ -172,5 +172,9 @@ let fake = {
       });
   }
 };
+
+if (cliArgs) {
+  fake.fakeData(outputDataPath, recordQuantity);
+}
 
 module.exports = fake;
