@@ -10,7 +10,7 @@ if (env === 'development') {
     password: devDbPassword,
     database: devDb
   });
-  
+
   module.exports = homes;
 } else if (env === 'test') {
   const { testSocketPath, testDbUser, testDbPassword, testDb } = require('../config');
@@ -22,5 +22,18 @@ if (env === 'development') {
   });
 
   module.exports = homes;
-}
+} else if (env === 'docker') {
+const { dockerHost, dockerPort, dockerUser, dockerDbPassword, dockerDb } = require('../config');
+console.log(dockerHost);
+const homes = mariadb.createPool({
+  host: dockerHost,
+  port: dockerPort,
+  user: dockerUser,
+  password: dockerDbPassword,
+  database: dockerDb
+});
+
+module.exports = homes;
+// }
+
 // TODO Production
