@@ -32,7 +32,9 @@ app.post('/houses/', jsonParser, (req, res) => {
 app.get('/houses/:houseID', (req, res) => {
   const { houseID } = req.params;
   Model.getHouse(houseID)
-    .then(rows => res.send(rows))
+    .then(rows => {
+      res.send(rows);
+    })
     .catch(err => {
       if (err.message === 'Bad Request') {
         res.sendStatus(400);

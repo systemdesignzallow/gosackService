@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import GenDesc from './components/App.jsx';
-const dotenv = require('dotenv');
-dotenv.config();
-const { servicePort } = require('../config');
+// TODO: Fix to env var, having webpack issues with dotenv
+const servicePort = 6001;
 
 const houseId = window.location.pathname;
 fetch(`http://localhost:${servicePort}${houseId}}`)
