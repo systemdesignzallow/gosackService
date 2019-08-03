@@ -4,7 +4,10 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 
-RUN npm install
-# expose port for maria
+CMD ["npm", "install"]
+CMD ["npm", "build"]
+CMD ["npm", "start"]
+
+# expose port for node
 EXPOSE 6001
 
