@@ -33,7 +33,6 @@ app.get('/houses/:houseID', (req, res) => {
   const { houseID } = req.params;
   Model.getHouse(houseID)
     .then(rows => {
-      console.log(rows);
       res.send(rows);
     })
     .catch(err => {
