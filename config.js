@@ -15,5 +15,11 @@ module.exports = {
   testSocketPath: process.env.TEST_DB_SOCKETPATH,
   testDbUser: process.env.TEST_DB_USER,
   testDbPassword: process.env.TEST_DB_PW,
-  testDb: process.env.TEST_DB
+  testDb: process.env.TEST_DB,
+
+  dockerHost: process.env.DOCKER_DB_HOST,
+  dockerPort: process.env.DOCKER_DB_PORT,
+  dockerUser: process.env.DOCKER_DB_USER,
+  dockerDbPassword: process.env.DOCKER_DB_PW,
+  dockerDb: process.env.DOCKER_DB
 };
