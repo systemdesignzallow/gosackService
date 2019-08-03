@@ -3,9 +3,8 @@ import FactsAndFeatures from './QuickFacts.jsx';
 import TopDescription from './TopDescription.jsx';
 import Details from './Details.jsx';
 import style from '../styles.css';
-const dotenv = require('dotenv');
-dotenv.config();
-const { servicePort } = require('../config');
+// TODO: Fix to env var, having webpack issues with dotenv
+const servicePort = 6001;
 
 class GenDesc extends React.Component {
   constructor(props) {
