@@ -30,6 +30,12 @@ This project adheres to the [AirBnb Style Guide](https://github.com/airbnb/javas
 
 Environment variables are set in the `./.env` file. A `.env.example` file is provided as a template.
 
+### Passed Environment Variables
+
+NEW_RELIC - Licence Key
+NODE_ENV - 'test','development','docker'
+LOCAL_SERVICE_SERVER_PORT - ex. 6001
+
 ```JSON
     "precommit": "NODE_ENV=production lint-staged",
     "test": "mocha ./test/test.js --exit",

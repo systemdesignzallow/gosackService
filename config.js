@@ -3,6 +3,7 @@ require('dotenv').config();
 module.exports = {
   env: process.env.NODE_ENV,
   servicePort: process.env.LOCAL_SERVICE_SERVER_PORT,
+  newRelicKey: process.env.NEW_RELIC,
 
   devDB: process.env.DEV_DB,
   devSocketPath: process.env.DEV_DB_SOCKETPATH,

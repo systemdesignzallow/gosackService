@@ -34,8 +34,5 @@ sample-data/data
 # test coverage
 .nyc_output
 
-# newrelic
-newrelic.js
-
 # no bundle
 public/app-bundle.js
