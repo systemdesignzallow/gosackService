@@ -146,9 +146,9 @@ let fake = {
 
           i--;
 
-          if (i === 0) {
-            writeStream.write(csvStringifier.stringifyRecords(sampleData), 'utf8');
-          }
+          // if (i === 0) {
+          //   writeStream.write(csvStringifier.stringifyRecords(sampleData), 'utf8');
+          // }
 
           if (i % 1e5 === 0 || i < 5) {
             if (i === 0) {
