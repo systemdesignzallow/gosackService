@@ -36,3 +36,9 @@ sample-data/data
 
 # no bundle
 public/app-bundle.js
+
+.csv
+.tfstate
+.terraformt
+.tfstate
+credentials.csv
