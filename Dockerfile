@@ -5,8 +5,8 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 
 RUN npm install
-CMD ["npm", "start"]
 
 # expose port for node
 EXPOSE 6001
 
+CMD ["node", "server/index.js"]
