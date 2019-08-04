@@ -4,8 +4,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 
-CMD ["npm", "install"]
-CMD ["npm", "build"]
+RUN npm install
 CMD ["npm", "start"]
 
 # expose port for node
