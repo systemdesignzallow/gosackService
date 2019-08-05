@@ -39,7 +39,9 @@ public/app-bundle.js
 
 .csv
 .tfstate
-.terraformt
+.terraform
 terraform.tfstate
 infrastructure/.terraform
 credentials.csv
+.info
+infrastructure/.terraform.tfstate.lock.info
