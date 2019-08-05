@@ -17,8 +17,6 @@ resource "aws_instance" "gosackService" {
 
 # user data is shell script that gets loaded into terraform
 data "template_file" "bootstrap" {
-  # count = 3
-  #   template = "${file("${path.cwd}/bootstrap${count.index}.sh")}"
   template = "${file("${path.cwd}/bootstrap.sh")}"
 }
 
