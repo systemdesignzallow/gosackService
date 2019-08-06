@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import GenDesc from './components/App.jsx';
 import { defaultCipherList } from 'constants';
-// TODO: Fix to env var, having webpack issues with dotenv
+
 const url = 'ec2-52-32-60-132.us-west-2.compute.amazonaws.com';
 
 const houseId = window.location.pathname;

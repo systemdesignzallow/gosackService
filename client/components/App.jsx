@@ -4,8 +4,6 @@ import TopDescription from './TopDescription.jsx';
 import Details from './Details.jsx';
 import style from '../styles.css';
 import url from '../index';
-// TODO: Fix to env var, having webpack issues with dotenv
-const servicePort = 6001;
 
 class GenDesc extends React.Component {
   constructor(props) {
