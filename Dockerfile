@@ -7,6 +7,7 @@ COPY . /usr/src/app
 RUN apt-get update -y
 RUN apt-get install vim -y
 RUN npm install
+RUN npm run build
 
 # expose port for node
 EXPOSE 6001
