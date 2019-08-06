@@ -13,7 +13,7 @@ git checkout docker
 echo 'LOCAL_SERVICE_SERVER_PORT=6001' >> .env
 echo 'NODE_ENV="docker"' >> .env
 echo 'NEW_RELIC="ab77636d6d1a81e91b0b1326702da84ae52124a9"' >> .env
-echo 'DOCKER_DB_HOST="172.31.24.240"' >> .env
+echo 'DOCKER_DB_HOST="34.222.160.20"' >> .env
 echo 'DOCKER_DB_PORT=3306' >> .env
 echo 'DOCKER_DB_USER="root"' >> .env
 echo 'DOCKER_DB_PW="mypassword"' >> .env
