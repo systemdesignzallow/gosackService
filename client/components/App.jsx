@@ -3,6 +3,7 @@ import FactsAndFeatures from './QuickFacts.jsx';
 import TopDescription from './TopDescription.jsx';
 import Details from './Details.jsx';
 import style from '../styles.css';
+import url from '../index';
 // TODO: Fix to env var, having webpack issues with dotenv
 const servicePort = 6001;
 
@@ -16,7 +17,7 @@ class GenDesc extends React.Component {
   }
   componentWillMount() {
     window.addEventListener('house_view', e => {
-      fetch(`http://localhost:${servicePort}/houses/${Math.floor(Math.random() * 98)}`)
+      fetch(`http://${url}/houses/${Math.floor(Math.random() * 98)}`)
         .then(res => res.json())
         .then(house => this.setState({ house }));
     });
@@ -36,4 +37,5 @@ class GenDesc extends React.Component {
     );
   }
 }
+
 export default GenDesc;
