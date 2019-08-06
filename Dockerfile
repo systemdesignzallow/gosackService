@@ -4,6 +4,8 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 
+RUN apt-get update -y
+RUN apt-get install vim -y
 RUN npm install
 
 # expose port for node
