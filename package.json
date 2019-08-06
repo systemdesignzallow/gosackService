@@ -1,6 +1,6 @@
 {
-  "name": "gosackService",
-  "version": "",
+  "name": "gosackservice",
+  "version": "1.0.0",
   "description": "General Description Service for Zallow",
   "author": "James Kelly",
   "license": "MIT",
@@ -30,6 +30,10 @@
     "start-dev": "webpack --config ./webpack.config.js --watch  --mode development & NODE_ENV='development' nodemon ./server/index.js",
     "start-dev-docker": "webpack --config ./webpack.config.js --watch  --mode development & NODE_ENV='docker' nodemon ./server/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/systemdesignzallow/gosackService.git"
+  },
   "dependencies": {
     "babel-plugin-react-css-modules": "^5.2.4",
     "body-parser": "^1.19.0",
@@ -46,6 +50,7 @@
     "mariadb": "^2.1.0",
     "mocha": "^6.2.0",
     "mongoose": "^5.4.20",
+    "newrelic": "^5.11.0",
     "nyc": "^14.1.1",
     "postcss": "^6.0.23",
     "react": "^16.8.5",

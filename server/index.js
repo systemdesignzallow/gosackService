@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('newrelic');
 
 const bodyParser = require('body-parser');
 const Model = require('../db/models/index');
