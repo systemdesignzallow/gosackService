@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('newrelic');
 
 const bodyParser = require('body-parser');
 const Model = require('../db/models/index');
@@ -80,7 +80,7 @@ app.delete('/houses/:houseID', (req, res) => {
 const PORT = process.env.LOCAL_SERVICE_SERVER_PORT || 3001;
 
 app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });
 
 module.exports = app;
