@@ -4,9 +4,9 @@ const { env } = require('../config');
 
 if (env === 'development') {
   console.log(`Environment ${env}`);
-  const { devSocketPath, devDbUser, devDbPassword, devDb } = require('../config');
+  const { devDbHost, devDbUser, devDbPassword, devDb } = require('../config');
   const homes = mariadb.createPool({
-    socketpath: devSocketPath,
+    host: devDbHost,
     user: devDbUser,
     password: devDbPassword,
     database: devDb

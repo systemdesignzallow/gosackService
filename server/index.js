@@ -1,9 +1,17 @@
 require('newrelic');
 
+require('ignore-styles');
+
+require('@babel/register')({
+  ignore: [/(node_modules)/],
+  presets: ['@babel/preset-env', '@babel/preset-react']
+});
+
 const bodyParser = require('body-parser');
 const Model = require('../db/models/index');
-const cors = require('cors');
+const renderHouse = require('../templates/renderHouse');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 app.use(express.static('./public'));
@@ -32,7 +40,7 @@ app.get('/houses/:houseID', (req, res) => {
   const { houseID } = req.params;
   Model.getHouse(houseID)
     .then(rows => {
-      res.send(rows);
+      res.send(renderHouse(rows));
     })
     .catch(err => {
       if (err.message === 'Bad Request') {
