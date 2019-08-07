@@ -6,7 +6,7 @@ module.exports = {
   newRelicKey: process.env.NEW_RELIC,
 
   devDB: process.env.DEV_DB,
-  devSocketPath: process.env.DEV_DB_SOCKETPATH,
+  devDbHost: process.env.DEV_DB_HOST,
   devDbUser: process.env.DEV_DB_USER,
   devDbPassword: process.env.DEV_DB_PW,
   devDb: process.env.DEV_DB,
