@@ -1,3 +1,4 @@
+require('newrelic');
 const House = require('../index');
 
 let getHouse = houseID => {
