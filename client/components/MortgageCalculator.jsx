@@ -1,5 +1,4 @@
 import React from 'react';
-// import style from '../styles.css';
 
 class MortgageCalculator extends React.Component {
   constructor({ house }) {

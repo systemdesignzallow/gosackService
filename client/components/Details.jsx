@@ -1,6 +1,5 @@
 import React from 'react';
 import ShowMore from './ShowMore.jsx';
-// import style from '../styles.css';
 
 var Details = ({ house, toggle, handleClick }) => {
   let key = 0;

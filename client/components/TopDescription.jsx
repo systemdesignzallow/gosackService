@@ -1,6 +1,6 @@
 import React from 'react';
 import MortgageCalculator from './MortgageCalculator.jsx';
-// import style from '../styles.css';
+
 var TopDescription = ({ house }) => {
   return (
     <div className="containerTop">

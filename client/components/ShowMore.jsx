@@ -1,5 +1,4 @@
 import React from 'react';
-// import style from '../styles.css';
 
 const ShowMore = ({ house }) => {
   return (

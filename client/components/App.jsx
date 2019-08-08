@@ -2,7 +2,6 @@ import React from 'react';
 import FactsAndFeatures from './QuickFacts.jsx';
 import TopDescription from './TopDescription.jsx';
 import Details from './Details.jsx';
-// import style from '../styles.css';
 
 class GenDesc extends React.Component {
   constructor(props) {

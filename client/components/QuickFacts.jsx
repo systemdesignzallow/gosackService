@@ -1,5 +1,4 @@
 import React from 'react';
-// import style from '../styles.css';
 
 var FactsAndFeatures = ({ house }) => {
   let key = 0;
