@@ -41,8 +41,6 @@
     "chai": "^4.2.0",
     "circleci": "^0.3.3",
     "cors": "^2.8.5",
-    "css-loader": "^2.1.1",
-    "css-modules-require-hook": "^4.2.3",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
     "express": "^4.16.4",

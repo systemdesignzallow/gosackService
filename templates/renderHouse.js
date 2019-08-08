@@ -3,13 +3,10 @@ const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
 let renderHouse = houseData => {
-  const component = ReactDOMServer.renderToString(<GenDesc house={houseData[0]} />);
-  return `<!DOCTYPE html>
-          <head></head>
-          <body>
-          <div id="gendesc">${component}</div>
-          <script src="app-bundle.js"></script>
-          </body>`;
+  // console.log(houseData);
+  const component = ReactDOMServer.renderToString(<GenDesc house={houseData} />);
+  // console.log(component);
+  return component;
 };
 
 module.exports = renderHouse;

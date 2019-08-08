@@ -7,6 +7,9 @@ require('@babel/register')({
   presets: ['@babel/preset-env', '@babel/preset-react']
 });
 
+const fs = require('fs');
+const path = require('path');
+const style = fs.readFileSync(path.join(__dirname, '../client/styles.css'), { encoding: 'utf8' });
 const bodyParser = require('body-parser');
 const Model = require('../db/models/index');
 const renderHouse = require('../templates/renderHouse');
@@ -40,14 +43,21 @@ app.get('/houses/:houseID', (req, res) => {
   const { houseID } = req.params;
   Model.getHouse(houseID)
     .then(rows => {
-      res.send(renderHouse(rows));
+      let data = {
+        html: renderHouse(rows[0]),
+        style: style
+      };
+      res.send(data);
     })
     .catch(err => {
       if (err.message === 'Bad Request') {
+        console.error(err);
         res.sendStatus(400);
       } else if (err.message === 'No record found') {
+        console.error(err);
         res.sendStatus(404);
       } else {
+        console.error(err);
         res.sendStatus(500);
       }
     });
