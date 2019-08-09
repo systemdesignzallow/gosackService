@@ -1,4 +1,5 @@
 'use strict';
+require('dotenv').config();
 const { newRelicKey } = require('./config');
 /**
  * New Relic agent configuration.
