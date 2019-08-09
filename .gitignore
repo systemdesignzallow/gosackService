@@ -36,8 +36,6 @@ sample-data/data
 
 # no bundle
 public/app-bundle.js
-public/app-bundle.gz.js
-public/test-bundle.js
 
 # terraform
 .csv
