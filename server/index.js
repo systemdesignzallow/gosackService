@@ -1,7 +1,5 @@
 require('newrelic');
-
 require('ignore-styles');
-
 require('@babel/register')({
   ignore: [/(node_modules)/],
   presets: ['@babel/preset-env', '@babel/preset-react']
@@ -16,6 +14,7 @@ const renderHouse = require('../templates/renderHouse');
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const { cache } = require('../db/index');
 
 app.use(express.static('./public'));
 app.use(cors());
@@ -43,6 +42,7 @@ app.get('/houses/:houseID', (req, res) => {
   const { houseID } = req.params;
   Model.getHouse(houseID)
     .then(rows => {
+      cache.set(`${houseID}`, `${JSON.stringify(rows[0])}`);
       let data = {
         html: renderHouse(rows[0]),
         style: style
