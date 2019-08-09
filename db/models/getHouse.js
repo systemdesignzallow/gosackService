@@ -1,5 +1,7 @@
 require('newrelic');
-const House = require('../index');
+// const House = require('../index');
+
+const { House, cache } = require('../index');
 
 let getHouse = houseID => {
   return new Promise((resolve, reject) => {
@@ -7,6 +9,13 @@ let getHouse = houseID => {
       throw new Error('Bad Request');
     }
 
+    cache.get(houseID, (err, house) => {
+      if (house) {
+        return JSON.parse(house);
+      }
+    });
+
+    // return house;
     House.getConnection()
       .then(conn => {
         let sql = `SELECT * FROM homes WHERE homeID=?`;

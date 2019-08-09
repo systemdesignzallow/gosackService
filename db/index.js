@@ -1,6 +1,7 @@
 const mariadb = require('mariadb');
-require('dotenv').config();
+const redis = require('redis');
 const { env } = require('../config');
+require('dotenv').config();
 
 if (env === 'development') {
   console.log(`Environment ${env}`);
@@ -25,16 +26,29 @@ if (env === 'development') {
 
   module.exports = homes;
 } else if (env === 'docker') {
-  const { dockerHost, dockerPort, dockerUser, dockerDbPassword, dockerDb } = require('../config');
+  const {
+    dockerHost,
+    dockerUser,
+    dockerDbPassword,
+    dockerDb,
+    redisPort,
+    redisHost
+  } = require('../config');
   console.log(`Environment ${env}`);
-  const homes = mariadb.createPool({
-    host: dockerHost,
-    user: dockerUser,
-    password: dockerDbPassword,
-    database: dockerDb
-  });
+  let db = {
+    House: mariadb.createPool({
+      host: dockerHost,
+      user: dockerUser,
+      password: dockerDbPassword,
+      database: dockerDb
+    }),
 
-  module.exports = homes;
+    cache: redis.createClient({
+      host: redisHost,
+      port: redisPort
+    })
+  };
+
+  module.exports = db;
 }
 
-// TODO Production

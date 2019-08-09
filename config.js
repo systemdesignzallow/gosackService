@@ -21,5 +21,8 @@ module.exports = {
   dockerPort: process.env.DOCKER_DB_PORT,
   dockerUser: process.env.DOCKER_DB_USER,
   dockerDbPassword: process.env.DOCKER_DB_PW,
-  dockerDb: process.env.DOCKER_DB
+  dockerDb: process.env.DOCKER_DB,
+
+  redisHost: process.env.REDIS_HOST,
+  redisPort: process.env.REDIS_PORT
 };
