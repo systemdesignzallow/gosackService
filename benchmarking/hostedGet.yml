@@ -1,0 +1,11 @@
+config:
+  target: 'http://ec2-54-190-32-171.us-west-2.compute.amazonaws.com'
+  processor: './benchmarkingHelpers.js'
+  phases:
+    - duration: 60
+      arrivalRate: 100
+scenarios:
+  - flow:
+      - function: 'getRandomInt'
+      - get:
+          url: '/houses/{{ number }}'

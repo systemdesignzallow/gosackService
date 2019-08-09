@@ -34,8 +34,16 @@ sample-data/data
 # test coverage
 .nyc_output
 
-# newrelic
-newrelic.js
-
 # no bundle
 public/app-bundle.js
+
+# terraform
+.csv
+.tfstate
+.terraform
+terraform.tfstate.backup
+terraform.tfstate
+infrastructure/.terraform
+credentials.csv
+.info
+infrastructure/.terraform.tfstate.lock.info

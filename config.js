@@ -3,9 +3,10 @@ require('dotenv').config();
 module.exports = {
   env: process.env.NODE_ENV,
   servicePort: process.env.LOCAL_SERVICE_SERVER_PORT,
+  newRelicKey: process.env.NEW_RELIC,
 
   devDB: process.env.DEV_DB,
-  devSocketPath: process.env.DEV_DB_SOCKETPATH,
+  devDbHost: process.env.DEV_DB_HOST,
   devDbUser: process.env.DEV_DB_USER,
   devDbPassword: process.env.DEV_DB_PW,
   devDb: process.env.DEV_DB,
@@ -20,5 +21,8 @@ module.exports = {
   dockerPort: process.env.DOCKER_DB_PORT,
   dockerUser: process.env.DOCKER_DB_USER,
   dockerDbPassword: process.env.DOCKER_DB_PW,
-  dockerDb: process.env.DOCKER_DB
+  dockerDb: process.env.DOCKER_DB,
+
+  redisHost: process.env.REDIS_HOST,
+  redisPort: process.env.REDIS_PORT
 };

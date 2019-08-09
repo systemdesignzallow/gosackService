@@ -4,7 +4,12 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY . /usr/src/app
 
+RUN apt-get update -y
+RUN apt-get install vim -y
 RUN npm install
-# expose port for maria
+RUN npm run build
+
+# expose port for node
 EXPOSE 6001
 
+CMD ["node", "server/index.js"]

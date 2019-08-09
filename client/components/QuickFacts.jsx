@@ -1,5 +1,4 @@
 import React from 'react';
-import style from '../styles.css';
 
 var FactsAndFeatures = ({ house }) => {
   let key = 0;
@@ -51,18 +50,18 @@ var FactsAndFeatures = ({ house }) => {
     }
   };
   return (
-    <div className={style.containerFacts}>
-      <h3 className={style.noMargin}>Facts and Features</h3>
-      <div className={style.containerFactsItems}>
+    <div className="containerFacts">
+      <h3 className="noMargin">Facts and Features</h3>
+      <div className="containerFactsItems">
         {Object.entries(quickFacts).map(fact => {
           let id = fact[0];
           fact = fact[1];
           return (
-            <div key={key++} className={style.fact} id={`facts-${id}`}>
+            <div key={key++} className="fact" id={`facts-${id}`}>
               <img style={{ width: '30px', height: '30px', marginRight: '10px' }} src={fact.img} />
               <div>
-                <h4 className={style.noMargin}>{fact.label}</h4>
-                <p className={style.noMargin}>{fact.val}</p>
+                <h4 className="noMargin">{fact.label}</h4>
+                <p className="noMargin">{fact.val}</p>
               </div>
             </div>
           );

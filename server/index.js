@@ -1,11 +1,20 @@
 require('newrelic');
-require('dotenv').config();
+require('ignore-styles');
+require('@babel/register')({
+  ignore: [/(node_modules)/],
+  presets: ['@babel/preset-env', '@babel/preset-react']
+});
 
+const fs = require('fs');
+const path = require('path');
+const style = fs.readFileSync(path.join(__dirname, '../client/styles.css'), { encoding: 'utf8' });
 const bodyParser = require('body-parser');
 const Model = require('../db/models/index');
-const cors = require('cors');
+const renderHouse = require('../templates/renderHouse');
 const express = require('express');
+const cors = require('cors');
 const app = express();
+const { cache } = require('../db/index');
 
 app.use(express.static('./public'));
 app.use(cors());
@@ -33,14 +42,22 @@ app.get('/houses/:houseID', (req, res) => {
   const { houseID } = req.params;
   Model.getHouse(houseID)
     .then(rows => {
-      res.send(rows);
+      cache.set(`${houseID}`, `${JSON.stringify(rows[0])}`);
+      let data = {
+        html: renderHouse(rows[0]),
+        style: style
+      };
+      res.send(data);
     })
     .catch(err => {
       if (err.message === 'Bad Request') {
+        console.error(err);
         res.sendStatus(400);
       } else if (err.message === 'No record found') {
+        console.error(err);
         res.sendStatus(404);
       } else {
+        console.error(err);
         res.sendStatus(500);
       }
     });
@@ -81,7 +98,7 @@ app.delete('/houses/:houseID', (req, res) => {
 const PORT = process.env.LOCAL_SERVICE_SERVER_PORT || 3001;
 
 app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });
 
 module.exports = app;

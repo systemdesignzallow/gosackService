@@ -1,5 +1,4 @@
 import React from 'react';
-import style from '../styles.css';
 
 class MortgageCalculator extends React.Component {
   constructor({ house }) {
@@ -77,38 +76,38 @@ class MortgageCalculator extends React.Component {
   }
   render() {
     return (
-      <div className={style.containerCalculator}>
+      <div className="containerCalculator">
         <div>
           ${Intl.NumberFormat().format(this.state.estimate.toFixed(2))}
           /mo
         </div>
         <div
-          id={style.calculatorButton}
+          id="calculatorButton"
           onClick={() => this.setState({ calcToggle: !this.state.calcToggle })}
         >
           <img src="https://image.flaticon.com/icons/svg/149/149169.svg" />
           <div>▼</div>
         </div>
         {this.state.calcToggle ? (
-          <div id={style.calculatorMain}>
-            <div id={style.calculatorTitle}>ESTIMATED MONTHLY PAYMENT</div>
-            <div id={style.calculatorMonthly}>
+          <div id="calculatorMain">
+            <div id="calculatorTitle">ESTIMATED MONTHLY PAYMENT</div>
+            <div id="calculatorMonthly">
               <div>
                 Your payment:{' '}
-                <span id={style.paymentBig}>
+                <span id="paymentBig">
                   ${Intl.NumberFormat().format(this.state.estimate.toFixed(2))}
                 </span>
-                <span id={style.paymentLittle}>/mo</span>
+                <span id="paymentLittle">/mo</span>
               </div>
             </div>
-            <span id={style.disclaimer}>{'Estimated taxes & insurance are not included.'}</span>
-            <div id={style.calculatorInput}>
+            <span id="disclaimer">{'Estimated taxes & insurance are not included.'}</span>
+            <div id="calculatorInput">
               <div>
-                <div className={style.inputTitle}> Home Price</div>
-                <div className={style.inputOuter}>
+                <div className="inputTitle"> Home Price</div>
+                <div className="inputOuter">
                   $
                   <input
-                    className={style.inputInner}
+                    className="inputInner"
                     type="text"
                     id="priceInput"
                     contentEditable="true"
@@ -119,12 +118,12 @@ class MortgageCalculator extends React.Component {
                 </div>
               </div>
               <div>
-                <div className={style.inputTitle}> Down Payment</div>
-                <div id={style.downpayment}>
-                  <div className={style.inputOuter}>
+                <div className="inputTitle"> Down Payment</div>
+                <div id="downpayment">
+                  <div className="inputOuter">
                     $
                     <input
-                      className={style.inputInner}
+                      className="inputInner"
                       type="text"
                       id="downPaymentDollar"
                       onKeyPress={this.handleKeyPress.bind(this)}
@@ -132,9 +131,9 @@ class MortgageCalculator extends React.Component {
                       value={Intl.NumberFormat().format(this.state.downPaymentDollar)}
                     />
                   </div>
-                  <div id={style.inputDownpaymentPercent} className={style.inputOuter}>
+                  <div id="inputDownpaymentPercent" className="inputOuter">
                     <input
-                      className={style.inputInner}
+                      className="inputInner"
                       type="text"
                       id="downPaymentPercent"
                       onKeyPress={this.handleKeyPress.bind(this)}
@@ -146,20 +145,20 @@ class MortgageCalculator extends React.Component {
                 </div>
               </div>
               <div>
-                <div className={style.inputTitle}> Loan Term</div>
-                <div className={style.inputOuter}>
-                  <select id={style.selectLoanTerm} onChange={this.handleChange.bind(this)}>
+                <div className="inputTitle"> Loan Term</div>
+                <div className="inputOuter">
+                  <select id="selectLoanTerm" onChange={this.handleChange.bind(this)}>
                     <option value="30">30-year fixed</option>
                     <option value="15">15-year fixed</option>
                   </select>
                 </div>
               </div>
               <div>
-                <div className={style.inputTitle}> Interest Rate</div>
-                <div id={style.interestRate}>
-                  <div className={style.inputOuter}>
+                <div className="inputTitle"> Interest Rate</div>
+                <div id="interestRate">
+                  <div className="inputOuter">
                     <input
-                      className={style.inputInner}
+                      className="inputInner"
                       type="text"
                       id="interest"
                       onKeyPress={this.handleKeyPress.bind(this)}
