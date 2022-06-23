@@ -45,7 +45,7 @@
     "enzyme-adapter-react-16": "^1.11.2",
     "express": "^4.16.4",
     "ignore-styles": "^5.0.1",
-    "jsdom": "^14.0.0",
+    "jsdom": "^16.5.0",
     "jsdom-global": "^3.0.2",
     "mariadb": "^2.1.0",
     "mocha": "^6.2.0",
